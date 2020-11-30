@@ -24,6 +24,8 @@ def init_start_game(p1, p2,turn, matrix_game, turno):
   player2_textField=tk.Entry(windows_set_players, textvariable=p2, bd=5)
   player2_textField.grid(row=2, column=2)
 
+  
+
   start_button=tk.Button(windows_set_players, text="Start", bg="grey", fg="black", font='Helvetica 14 bold', height=1, width=8, command=lambda : ch.set_new_game(p1,p2,player1_textField, player2_textField, matrix_game, windows_set_players,turn,turno) )
   start_button.grid(row=3, column=2, padx=75, pady=30)
 

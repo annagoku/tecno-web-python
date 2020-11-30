@@ -10,20 +10,27 @@ import Window_start_game as wsg
 
 
 
-def main():
-  window_game=tk.Tk()
+def init_gui_field_game(root):
+#def main():
+  window_game=tk.Toplevel(root)
+  window_game.lift()
+  window_game.grab_set()
+
+
   matrix_game=[]
   player1_name = tk.StringVar()
   player1_name.set("Input name")
   player2_name = tk.StringVar()
+  player2_name.set("Input name")
   turn=tk.StringVar()
   turn.set("Press New Game to start")
-  player2_name.set("Input name")
   points1_tot = tk.IntVar()
   points1_tot.set(0)
   points2_tot = tk.IntVar()
   points2_tot.set(0)
   matrix_symbol=[]
+  print(turn.get())
+  
  
   window_game.geometry("900x785")
   window_game.title("Filetto Game")
@@ -57,7 +64,7 @@ def main():
   turno.place(x=100, y=30)
 
   #button
-  new_game=tk.Button(window_game, text="New Game", bg="grey", fg="black", font='Helvetica 14 bold', height=1, width=9, command= lambda : ch.open_win_init_game(player1_name, player2_name,turn, matrix_game,turno))
+  new_game=tk.Button(window_game, text="New Game", bg="grey", fg="black", font='Helvetica 14 bold', height=1, width=9, command= lambda : ch.open_win_init_game(player1_name, player2_name,turn, matrix_game,turno,matrix_symbol))
   new_game.place(x=680, y=150)
   reset=tk.Button(window_game, text="Reset Game", bg="grey", fg="black", font='Helvetica 14 bold', height=1, width=9, command= lambda : ch.reset_option(matrix_game, matrix_symbol,points1_tot,points2_tot,turn,turno))
   reset.place(x=680, y=210)
@@ -84,14 +91,12 @@ def main():
   for i in range (0,7):
     for j in range (0,7):
       mg=matrix_game[i][j]
-      mg.configure(command=lambda i=i, j=j,  button=mg: ch.play_game(button, i, j, turn, matrix_symbol, points1_tot, points2_tot,turno)) 
+      mg.configure(command=lambda i=i, j=j,  button=mg: ch.play_game(button, i, j, turn, matrix_symbol, points1_tot, points2_tot,turno,window_game,matrix_game)) 
  
   window_game.mainloop()
 
   
 
-  
 
 
-if __name__ == "__main__":
-    main()
+
