@@ -12,7 +12,7 @@ def init_gui_credit():
   windows_credit.configure(bg="black")
   
   text1="Author: Annalisa Sabatelli"
-  text2=" Esame di Tecnologie Web a.a. 2020/2021"
+  text2=" Esame di Interazione Uomo-Macchina a.a. 2020/2021"
   credit_label1=tk.Label(windows_credit, text=text1, fg="white", bg="black", font="Helvetica 14")
   credit_label1.pack( pady=30, side=tk.TOP)
   credit_label2=tk.Label(windows_credit, text=text2, fg="white", bg="black", font="Helvetica 14 bold")
