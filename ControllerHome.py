@@ -54,7 +54,7 @@ def play_game(b, i, j, turn, matrix_symbol, points1_tot, points2_tot, turno, win
     b.config (disabledforeground="red", state=tk.DISABLED)
     points1_tot.set(gl.check_points(matrix_symbol,symbol1))
 
-    if((gl.check_full_matrix(matrix_symbol) and (points1_tot>points2_tot)) or gl.check_win(points1_tot)):
+    if((gl.check_full_matrix(matrix_symbol) and (points1_tot.get()>points2_tot.get())) or gl.check_win(points1_tot)):
       #tm.showinfo("Game Over", "Player1 WIN!!")
        ww.init_winner_game(1)
        for i in range (0,7):
@@ -70,7 +70,7 @@ def play_game(b, i, j, turn, matrix_symbol, points1_tot, points2_tot, turno, win
     symbol2="O"
     b.config (disabledforeground="blue", state=tk.DISABLED)
     points2_tot.set(gl.check_points(matrix_symbol,symbol2))
-    if((gl.check_full_matrix(matrix_symbol) and (points2_tot>points1_tot)) or gl.check_win(points2_tot)):
+    if((gl.check_full_matrix(matrix_symbol) and (points2_tot.get()>points1_tot.get())) or gl.check_win(points2_tot)):
       #tm.showinfo("Game Over", "Player2 WIN!!" , parent=window_game)
       ww.init_winner_game(2)
       for i in range (0,7):
