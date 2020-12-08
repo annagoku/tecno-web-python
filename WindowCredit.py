@@ -6,10 +6,19 @@ import ControllerHome as ch
   # modale credits
 def init_gui_credit():
   windows_credit=tk.Toplevel()
-  windows_credit.geometry("600x500")
+  window_height = 500
+  window_width = 600
   windows_credit.title("Filetto @Credits")
   windows_credit.resizable(False,False)
   windows_credit.configure(bg="black")
+
+  screen_width = windows_credit.winfo_screenwidth()
+  screen_height = windows_credit.winfo_screenheight()
+
+  x_cordinate = int((screen_width/2) - (window_width/2))
+  y_cordinate = int((screen_height/2) - (window_height/2))
+
+  windows_credit.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
   
   text1="Author: Annalisa Sabatelli"
   text2=" Esame di Interazione Uomo-Macchina a.a. 2020/2021"

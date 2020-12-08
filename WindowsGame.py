@@ -8,13 +8,24 @@ import Window_start_game as wsg
 
 
 
-
-
 def init_gui_field_game(root):
-#def main():
+
   window_game=tk.Toplevel(root)
   window_game.lift()
   window_game.grab_set()
+
+  window_height = 785
+  window_width = 900
+  window_game.title("Filetto Game")
+  window_game.configure(bg='black')
+  window_game.resizable(False,False)
+  screen_width = window_game.winfo_screenwidth()
+  screen_height = window_game.winfo_screenheight()
+
+  x_cordinate = int((screen_width/2) - (window_width/2))
+  y_cordinate = int((screen_height/2) - (window_height/2))
+
+  window_game.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
 
   matrix_game=[]
@@ -32,10 +43,8 @@ def init_gui_field_game(root):
   print(turn.get())
   
  
-  window_game.geometry("900x785")
-  window_game.title("Filetto Game")
-  window_game.configure(bg='black')
-  window_game.resizable(False,False)
+  
+
 
 #Player 1
   player1=tk.Label(window_game, text="X  Player1:", fg="red", bg="black", relief="solid", font="Helvetica 14 bold" )

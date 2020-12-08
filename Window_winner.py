@@ -9,10 +9,18 @@ import ControllerHome as ch
 
 def init_winner_game(num):
   windows_winner=tk.Tk()
-  windows_winner.geometry("400x200")
+  window_height = 200
+  window_width = 400
   windows_winner.title("Game Over")
   windows_winner.resizable(False,False)
   windows_winner.configure(bg='black')
+  screen_width = windows_winner.winfo_screenwidth()
+  screen_height = windows_winner.winfo_screenheight()
+
+  x_cordinate = int((screen_width/2) - (window_width/2))
+  y_cordinate = int((screen_height/2) - (window_height/2))
+
+  windows_winner.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
   if(num==1):
     winner=tk.Label(windows_winner, text="PLAYER 1 WIN!!", fg="red", bg="black", font="Helvetica 16 bold" )

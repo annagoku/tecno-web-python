@@ -9,10 +9,20 @@ import ControllerHome as ch
 
 def init_start_game(p1, p2,turn, matrix_game, turno):
   windows_set_players=tk.Tk()
-  windows_set_players.geometry("400x200")
+  window_height = 200
+  window_width = 400
   windows_set_players.title("Filetto Game - Set Players")
   windows_set_players.resizable(False,False)
   windows_set_players.configure(bg='black')
+
+  screen_width = windows_set_players.winfo_screenwidth()
+  screen_height = windows_set_players.winfo_screenheight()
+
+  x_cordinate = int((screen_width/2) - (window_width/2))
+  y_cordinate = int((screen_height/2) - (window_height/2))
+
+  windows_set_players.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+
 
   player1=tk.Label(windows_set_players, text="X  Player1:", fg="red", bg="black", font="Helvetica 14 bold" )
   player1.grid(row=1, column=1, padx=10, pady=20)
